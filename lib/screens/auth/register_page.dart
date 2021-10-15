@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import './login_page.dart';
 import 'widgets/heading_auth.dart';
-import './register_page.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   late double _deviceWidth;
   late double _deviceHeight;
   @override
@@ -50,15 +50,42 @@ class LoginPage extends StatelessWidget {
                 offset: Offset(0, 10))
           ]),
       child: Column(
-        children: [_emailTextField(context), _passwordTextField(context)],
+        children: [
+          _nameTextField(context),
+          _emailTextField(context),
+          _passwordTextField(context),
+        ],
       ),
+    );
+  }
+
+  Widget _nameTextField(BuildContext context) {
+    return TextFormField(
+      autocorrect: false,
+      autofocus: true,
+      style: TextStyle(color: Theme.of(context).primaryColor),
+      validator: (value) {},
+      cursorColor: Theme.of(context).primaryColor,
+      decoration: InputDecoration(
+          border: UnderlineInputBorder(
+            borderSide: BorderSide(color: Theme.of(context).primaryColor),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Theme.of(context).primaryColor),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Theme.of(context).primaryColor),
+          ),
+          contentPadding: EdgeInsets.all(10),
+          hintText: 'Nome completo',
+          hintStyle: TextStyle(color: Theme.of(context).primaryColor)),
     );
   }
 
   Widget _emailTextField(BuildContext context) {
     return TextFormField(
       autocorrect: false,
-      autofocus: true,
+      autofocus: false,
       style: TextStyle(color: Theme.of(context).primaryColor),
       validator: (value) {},
       cursorColor: Theme.of(context).primaryColor,
@@ -116,13 +143,11 @@ class LoginPage extends StatelessWidget {
   Widget _textRegister(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        //Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => RegisterPage()))
-        // Ao clicar no botão "Cadastrar", o aplicativo chama a tela de registro
-        // no lugar da tela de login, mantendo só 1 tela na pilha
-        Navigator.pushReplacementNamed(context, '/register')
+        //Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()))
+        Navigator.pushReplacementNamed(context, '/login')
       },
       child: Text(
-        'Cadastrar',
+        'Já cadastrado? Faça o Login',
         style: TextStyle(
           color: Theme.of(context).primaryColor,
           fontSize: 18,

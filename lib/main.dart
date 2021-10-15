@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutterfood/screens/restaurants/restaurant_page.dart';
+import './screens/auth/register_page.dart';
 import './screens/auth/login_page.dart';
 
 void main() => runApp(FlutterFoodApp());
@@ -15,7 +16,15 @@ class FlutterFoodApp extends StatelessWidget {
           backgroundColor: Colors.white,
           accentColor: Colors.black,
           brightness: Brightness.dark),
-      home: LoginScreen(),
+      // Configurando as rotas
+      routes: <String, WidgetBuilder>{
+        '/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(),
+        '/restaurants': (context) => RestaurantePage(),
+      },
+
+      // Rota padrão ao abrir o aplicativo
+      initialRoute: '/login',
     );
   }
 }
