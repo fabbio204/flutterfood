@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterfood/screens/restaurants/restaurant_page.dart';
 import './screens/auth/register_page.dart';
 import './screens/auth/login_page.dart';
+import 'screens/foods/foods_page.dart';
 
 void main() => runApp(FlutterFoodApp());
 
@@ -21,6 +22,7 @@ class FlutterFoodApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/restaurants': (context) => RestaurantePage(),
+        '/foods': (context) => FoodsPage(),
       },
 
       // Rota padrão ao abrir o aplicativo
